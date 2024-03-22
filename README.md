@@ -1,6 +1,4 @@
 # SevMark
-Aplicação que tem como objetivo suprir uma falta nas cidades que passo, que é a falta de um site que reuna as quadras para ser alugadas de uma forma mais simplificada
+Este Projeto tem o intuito de exercitar o conhecimentos de Java e SpringBoot, e como havia feito um Projeto há pouco, decidi fazer o back do SevMark com o Spring
 
-<h3>Esta Aplicação consistirá em um site para marcar rachas, onde pessoas cadastradas poderão adicionar uma quadra ou espaço para poder ser alugado</h3>
-
-A intenção é que ao final tenha um site que pegue a localização do indivíduo e mostre as quadras próximas para alugar.
+<h3>Para rodar o projeto você deve clonar o projeto, em seguida abrir na sua IDE o projeto e buscar pelo arquivo SevMarkApplication no caminho backJava\src\main\java\com\sevmark\SevMark, ai então você irá rodar o programa no terminal com "mvn spring-boot:run"</h3>
