@@ -3,7 +3,11 @@ package com.sevmark.SevMark.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,6 +15,7 @@ import com.sevmark.SevMark.DTO.UserDTO;
 import com.sevmark.SevMark.model.User;
 import com.sevmark.SevMark.repository.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -22,13 +27,41 @@ public class UserController {
     private UserService service;
 
     @GetMapping
-    public List<UserDTO> getUsers() {
-       return service.getAllUsers();
+    public ResponseEntity<List<UserDTO>> getUsers() {
+       List<UserDTO> users = service.getAllUsers();
+       return ResponseEntity.ok(users);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getUserById(@PathVariable Long id) {
+        UserDTO userDTO = service.getUserById(id);
+        if (userDTO != null) {
+            return ResponseEntity.ok(userDTO);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado para o ID fornecido");
+        }
     }
 
     @PostMapping
-    public UserDTO postUser(@RequestBody User entity) {
-        return service.postUser(entity);
+    public ResponseEntity<UserDTO> postUser(@RequestBody User entity) {
+        UserDTO createdUser = service.postUser(entity);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody User entity) {
+        UserDTO updatedUser = service.updateUser(id, entity);
+        if (updatedUser != null) {
+            return ResponseEntity.ok(updatedUser);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado para o ID fornecido");
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+        service.deleteUser(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
     
 }

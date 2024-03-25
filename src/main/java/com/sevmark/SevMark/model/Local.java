@@ -3,6 +3,7 @@ package com.sevmark.SevMark.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -17,15 +18,19 @@ public class Local {
     private String description;
     private String obs;
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
-    public Local(Long id, String locationName, Double price, String description, String obs) {
+    public Local(Long id, String locationName, Double price, String description, String obs, User user) {
         this.id = id;
         this.locationName = locationName;
         this.price = price;
         this.description = description;
         this.obs = obs;
     }
+
+    public Local(){}
+    
     public Long getId() {
         return id;
     }

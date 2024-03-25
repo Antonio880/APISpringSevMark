@@ -25,9 +25,9 @@ public class User {
     private String typeUser;
     private String phone;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Local> locals = new ArrayList<>();
 
+    public User() {}
+    
     public User(Long id, String email, String username, String password, String typeUser, String phone) {
         this.id = id;
         this.email = email;
@@ -83,14 +83,6 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public List<Local> getLocals() {
-        return locals;
-    }
-
-    public void setLocals(List<Local> locals) {
-        this.locals = locals;
     }
 
     
