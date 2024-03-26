@@ -25,13 +25,13 @@ public class LocalController {
     private LocalService service;
 
     @GetMapping
-    public ResponseEntity<List<LocalDTO>> getUsers() {
+    public ResponseEntity<List<LocalDTO>> getLocals() {
        List<LocalDTO> locals = service.getAllLocals();
        return ResponseEntity.ok(locals);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getUserById(@PathVariable Long id) {
+    public ResponseEntity<?> getLocalById(@PathVariable Long id) {
         LocalDTO localDTO = service.getLocalById(id);
         if (localDTO != null) {
             return ResponseEntity.ok(localDTO); // Retornar o DTO se encontrado
@@ -41,13 +41,13 @@ public class LocalController {
     }
 
     @PostMapping
-    public ResponseEntity<LocalDTO> postUser(@RequestBody Local entity) {
+    public ResponseEntity<LocalDTO> postLocal(@RequestBody Local entity) {
         LocalDTO createdLocal = service.postLocal(entity);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdLocal);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody Local entity) {
+    public ResponseEntity<?> updateLocal(@PathVariable Long id, @RequestBody Local entity) {
         LocalDTO updatedLocal = service.updateLocal(id, entity);
         if (updatedLocal != null) {
             return ResponseEntity.ok(updatedLocal); // Retornar o DTO atualizado
@@ -57,7 +57,7 @@ public class LocalController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteUser(@PathVariable Long id) {
+    public ResponseEntity<?> deleteLocal(@PathVariable Long id) {
         service.deleteLocal(id);
         return ResponseEntity.status(HttpStatus.OK).body("Local Deletado com sucesso"); // Retornar 204 sem corpo de resposta
     }
