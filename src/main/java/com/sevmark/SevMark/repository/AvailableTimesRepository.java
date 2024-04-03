@@ -1,4 +1,4 @@
-package com.sevmark.SevMark.services;
+package com.sevmark.SevMark.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

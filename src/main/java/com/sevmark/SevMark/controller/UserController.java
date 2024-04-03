@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sevmark.SevMark.DTO.UserDTO;
 import com.sevmark.SevMark.model.User;
-import com.sevmark.SevMark.repository.UserService;
+import com.sevmark.SevMark.services.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;

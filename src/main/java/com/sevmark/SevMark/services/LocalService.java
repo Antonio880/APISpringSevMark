@@ -1,6 +1,7 @@
-package com.sevmark.SevMark.repository;
+package com.sevmark.SevMark.services;
 
 import java.util.List;
+
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -10,8 +11,8 @@ import org.springframework.stereotype.Service;
 import com.sevmark.SevMark.DTO.LocalDTO;
 import com.sevmark.SevMark.model.Local;
 import com.sevmark.SevMark.model.User;
-import com.sevmark.SevMark.services.LocalRepository;
-import com.sevmark.SevMark.services.UserRepository;
+import com.sevmark.SevMark.repository.LocalRepository;
+import com.sevmark.SevMark.repository.UserRepository;
 
 @Service
 public class LocalService {

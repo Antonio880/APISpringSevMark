@@ -1,4 +1,4 @@
-package com.sevmark.SevMark.repository;
+package com.sevmark.SevMark.services;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sevmark.SevMark.services.UserRepository;
+import com.sevmark.SevMark.repository.UserRepository;
 import com.sevmark.SevMark.DTO.UserDTO;
 import com.sevmark.SevMark.model.User;
 

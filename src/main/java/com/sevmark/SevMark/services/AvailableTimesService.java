@@ -1,4 +1,4 @@
-package com.sevmark.SevMark.repository;
+package com.sevmark.SevMark.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 import com.sevmark.SevMark.DTO.AvailableTimesDTO;
 import com.sevmark.SevMark.model.AvailableTimes;
 import com.sevmark.SevMark.model.Local;
-import com.sevmark.SevMark.services.AvailableTimesRepository;
-import com.sevmark.SevMark.services.LocalRepository;
+import com.sevmark.SevMark.repository.AvailableTimesRepository;
+import com.sevmark.SevMark.repository.LocalRepository;
 
 @Service
 public class AvailableTimesService {

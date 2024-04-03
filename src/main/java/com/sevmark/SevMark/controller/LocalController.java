@@ -3,7 +3,7 @@ package com.sevmark.SevMark.controller;
 import java.util.List;
 import com.sevmark.SevMark.DTO.LocalDTO;
 import com.sevmark.SevMark.model.Local;
-import com.sevmark.SevMark.repository.LocalService;
+import com.sevmark.SevMark.services.LocalService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
