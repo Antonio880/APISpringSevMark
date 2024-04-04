@@ -27,13 +27,13 @@ public class MarkController {
     private MarkService markService;
 
     @GetMapping
-    public ResponseEntity<List<MarkDTO>> getAllMarks() {
+    private ResponseEntity<List<MarkDTO>> getAllMarks() {
         List<MarkDTO> marks = markService.getAllMarks();
         return ResponseEntity.ok(marks);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<MarkDTO> getMarkById(@PathVariable Long id) {
+    private ResponseEntity<MarkDTO> getMarkById(@PathVariable Long id) {
         MarkDTO mark = markService.getMarkById(id);
         if (mark != null) {
             return ResponseEntity.ok(mark);
@@ -43,7 +43,7 @@ public class MarkController {
     }
 
     @PostMapping
-    public ResponseEntity<MarkDTO> createMark(@RequestBody Mark mark) {
+    private ResponseEntity<MarkDTO> createMark(@RequestBody Mark mark) {
         MarkDTO createdMark = markService.createMark(mark);
         if (createdMark != null) {
             return ResponseEntity.status(HttpStatus.CREATED).body(createdMark);
@@ -53,7 +53,7 @@ public class MarkController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<MarkDTO> updateMark(@PathVariable Long id, @RequestBody Mark mark) {
+    private ResponseEntity<MarkDTO> updateMark(@PathVariable Long id, @RequestBody Mark mark) {
         MarkDTO updatedMark = markService.updateMark(id, mark);
         if (updatedMark != null) {
             return ResponseEntity.ok(updatedMark);
@@ -63,7 +63,7 @@ public class MarkController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteMark(@PathVariable Long id) {
+    private ResponseEntity<Void> deleteMark(@PathVariable Long id) {
         markService.deleteMark(id);
         return ResponseEntity.noContent().build();
     }
