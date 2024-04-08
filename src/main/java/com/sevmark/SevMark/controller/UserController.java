@@ -2,6 +2,7 @@ package com.sevmark.SevMark.controller;
 
 import java.util.List;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import com.sevmark.SevMark.services.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.util.UriComponentsBuilder;
 
 
 @RestController
@@ -43,8 +45,9 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserDTO> postUser(@RequestBody User entity) {
+    public ResponseEntity<UserDTO> postUser(@RequestBody User entity, UriComponentsBuilder uriBuilder) {
         UserDTO createdUser = service.postUser(entity);
+
         return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
     }
 
