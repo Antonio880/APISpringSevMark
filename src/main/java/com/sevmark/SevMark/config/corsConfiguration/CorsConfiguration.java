@@ -1,4 +1,4 @@
-package com.sevmark.SevMark.config;
+package com.sevmark.SevMark.config.corsConfiguration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

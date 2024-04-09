@@ -1,4 +1,4 @@
-package com.sevmark.SevMark.infra;
+package com.sevmark.SevMark.infra.exceptions;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
