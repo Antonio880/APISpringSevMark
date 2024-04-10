@@ -29,7 +29,7 @@ public class AutenticationController {
             var authentication = manager.authenticate(authenticationToken);
 
             var tokenJWT = tokenService.gerarToken((Usuario) authentication.getPrincipal());
-
+            System.out.println("TOKEN GERADO NO LOGIN:" + tokenJWT);
             return ResponseEntity.ok(new TokenJWT(tokenJWT));
         } catch (Exception e) {
             e.printStackTrace();
