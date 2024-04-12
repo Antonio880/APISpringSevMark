@@ -4,7 +4,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
-import com.sevmark.SevMark.model.usuario.Usuario;
+import com.sevmark.SevMark.model.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -22,12 +22,12 @@ public class TokenService {
 
     private static final String ISSUER = "API sevmark";
 
-    public String gerarToken(Usuario usuario) throws JWTVerificationException, UnsupportedEncodingException {
+    public String gerarToken(User usuario) throws JWTVerificationException, UnsupportedEncodingException {
         try {
             var algoritmo = Algorithm.HMAC256(secret);
             return JWT.create()
                     .withIssuer(ISSUER)
-                    .withSubject(usuario.getLogin())
+                    .withSubject(usuario.getEmail())
                     .withClaim("name", usuario.getUsername())
                     .withExpiresAt(dataExpiracao())
                     .sign(algoritmo);
@@ -53,6 +53,6 @@ public class TokenService {
     }
 
     private Instant dataExpiracao() {
-        return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
+        return LocalDateTime.now().plusMinutes(15).toInstant(ZoneOffset.of("-03:00"));
     }
 }
